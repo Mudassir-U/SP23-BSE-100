@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .container {
+            background-color: black; 
+            padding:20px;
+            height: 200px;
+            display: flex;
+            align-items:end ;
+            color: lightgray;
+            width: auto;
+        }
+        .bar{
+            background-color: lightgrey;
+            display: flex;
+
+        }
+        .elements{
+            display: flex;
+            color: white;
+            gap: 20px;
+            text-align: center;
+        }
+        .image {
+            max-width: 100%;
+            height: auto;
+            display: flex;
+            overflow: hidden;
+        }
+        :hover.hover{
+            background-color: grey;
+        }
+     
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <img style="width: 100px;" src="Nestle.png" alt="Nestle">
+        <h1 style="height: 8px; margin-left: 20px;" >Good food, Good life</h1>
+    </div>
+</header>
+<nav class="bar">
+    <ul class="elements">
+        <a href="index.html"> <i class="fas fa-home"></i> Home</a>
+        <a class="hover" href="#">About Us</a>
+        <a class="hover" href="#">Our Stories</a>
+        <a class="hover" href="#">Brands</a>
+        <a class="hover" href="#">Sustainability</a>
+        <a class="hover" href="#">Nutrition</a>
+        <a class="hover" href="#">Ask Nestlé</a>
+    </ul>
+</nav>
+<div class="image">
+    <img style="width: fit-content;" src="Nestle1.jpeg" alt="Child and Mother">
+</div>
+
+</body>
+</html>
