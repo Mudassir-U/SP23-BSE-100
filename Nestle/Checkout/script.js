@@ -43,7 +43,9 @@ function handleFormSubmit(event) {
     }
 
     if (isValid) {
+        alert('Data Submitted Successfully')
         console.log("Valid form");
+        form.reset();
     
     } else {
         console.log("Invalid form");
