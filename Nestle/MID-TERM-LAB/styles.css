@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: black; /* Changed to black */
+    color: white; /* Changed text color to white */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Styling for the header with background image */
+header {
+    background: url('https://wallpaperaccess.com/full/5651980.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    border-radius: 10px;
+    position: relative;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+header p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Text at the bottom-right of the header */
+.course-code {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff; /* Ensure this remains white */
+    padding: 5px 10px;
+    /* Removed background color to make it transparent */
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: white; /* Changed heading color to white */
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.semester-projects {
+    margin-bottom: 40px;
+}
+
+.project {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+.project:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.project h3 {
+    font-size: 1.6rem;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.project p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #6c757d; /* Gray button */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+    transform: translateY(-2px); /* Slightly lift the button */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.5); /* Adjust focus ring color */
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Styles for description page */
+.description-container {
+    display: none;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.description-background {
+    position: relative;
+    background-size: cover;
+    height: 300px; /* Set height for background */
+    border-radius: 8px;
+    margin-bottom: 20px; /* Space between image and description */
+}
+
+.description-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: white; /* Title color */
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.description-text {
+    font-size: 1rem;
+    color: #fff; /* Change description color to white for better contrast */
+    text-align: center;
+}

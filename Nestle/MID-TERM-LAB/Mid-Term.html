@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+</head>
+<body>
+
+    <!-- MAIN PORTFOLIO PAGE -->
+    <header>
+        <h1>My Portfolio</h1>
+        <p>Explore my work categorized by semester</p>
+        <div class="course-code">SP23-BSE-100</div>
+    </header>
+
+    <section class="semester-projects">
+        <h2>Semester 1 Projects</h2>
+        <div class="project" onclick="showProjectDescription('project1')">
+            <img src="https://codehalweb.com/wp-content/uploads/2023/05/thumbnail-12.jpg" alt="Project 1 Image">
+            <h3>Project 1: Portfolio Website</h3>
+            <p>Summary: A simple portfolio showcasing semester-wise projects.</p>
+            <button>Show Description</button>
+        </div>
+        <div class="project" onclick="showProjectDescription('project2')">
+            <img src="https://th.bing.com/th?id=OIP.7tjvMSbeIUUvgSStCgudDgHaGG&w=275&h=226&c=8&rs=1&qlt=90&r=0&o=6&pid=3.1&rm=2" alt="Project 2 Image">
+            <h3>Project 2: ToDo List App</h3>
+            <p>Summary: A ToDo list application built using JavaScript.</p>
+            <button>Show Description</button>
+        </div>
+    </section>
+
+    <section class="semester-projects">
+        <h2>Semester 2 Projects</h2>
+        <div class="project" onclick="showProjectDescription('project3')">
+            <img src="https://th.bing.com/th/id/OIP.MG3jMCfWYBkmBerbDjW5VAHaE9?rs=1&pid=ImgDetMain" alt="Project 3 Image">
+            <h3>Project 3: E-commerce Website</h3>
+            <p>Summary: A mock e-commerce website with product listing and cart features.</p>
+            <button>Show Description</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My Portfolio | All rights reserved</p>
+    </footer>
+
+    <!-- Description Page Container -->
+    <div class="description-container" id="description-container">
+        <div class="description-background" id="description-background" style="background-image: url('');">
+            <div class="description-title" id="project-title">Project Title</div>
+        </div>
+        <p class="description-text" id="project-description">Loading description...</p>
+        <button onclick="backToPortfolio()">Back to Portfolio</button>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to JavaScript file -->
+</body>
+</html>
