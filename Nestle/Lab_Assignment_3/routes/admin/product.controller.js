@@ -54,12 +54,23 @@ return res.redirect("/admin/products")
 
 
 //To products page
-router.get("/admin/products", async (req,res)=>{
-  let products = await  Product.find();
+router.get("/admin/products/:page?", async (req,res)=>{
+  let page = req.params.page;
+  page = page ? Number(page) : 1;
+  let pagesize = 4;
+  let totalrecords = await Product.countDocuments();
+  let totalpages = Math.ceil(totalrecords/pagesize);
+  let products = await  Product.find()
+  .limit(pagesize)
+  .skip((page-1)*pagesize);
   return res.render("admin/products",{
      layout:"Admin_layout",
      pageTitle:"Manage Your Products",
      products,
+     page,
+     pagesize,
+     totalpages,
+     totalrecords,
   });
 });
 
