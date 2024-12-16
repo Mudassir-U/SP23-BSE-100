@@ -16,14 +16,17 @@ server.get("/portfolio", (req, res) => {
   return res.render("portfolio"),{layout:false}
 });
 
+let expressrouter = require("./routes/product.controller");
+server.use(expressrouter);
 
-router.get('/Admin', (req,res) =>{
-  console.log("Admin Accessed.")
-  return res.render('admin/Form-page'),{layout:Admin_layout}
+server.get("/admin/product/create", (req, res) => {
+  res.render("admin/products_form", { 
+    layout:"Admin_layout",
+});
 });
 
 server.use("/", router);
 
-server.listen(2000, () => {
-  console.log(`Server Started at localhost:2000`);
+server.listen(200, () => {
+  console.log(`Server Started at localhost:200`);
 });

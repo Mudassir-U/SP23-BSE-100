@@ -1,0 +1,21 @@
+<h3><%-pageTitle  %></h3>
+
+<a href="/admin/product/create" class="btn btn-info">Create New Product</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for( let index = 0; index < products.length; index++ ) { %>
+            <tr>
+                <td><%= products[index].id %></td>
+                <td><%= products[index].title %></td>
+                <td><%= products[index].price %></td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
