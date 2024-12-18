@@ -57,23 +57,42 @@ router.get('/homepage',async(req, res) => {
 });
 
 //To products page
-router.get("/admin/products/:page?", async (req,res)=>{
+router.get("/admin/products/:page?", async (req, res) => {
   let page = req.params.page;
   page = page ? Number(page) : 1;
-  let pagesize = 4;
-  let totalrecords = await Product.countDocuments();
-  let totalpages = Math.ceil(totalrecords/pagesize);
-  let products = await  Product.find()
-  .limit(pagesize)
-  .skip((page-1)*pagesize);
-  return res.render("admin/products",{
-     layout:"Admin_layout",
-     pageTitle:"Manage Your Products",
-     products,
-     page,
-     pagesize,
-     totalpages,
-     totalrecords,
+  let pageSize = 4;
+
+  // Get search query and price filter from query parameters
+  let searchQuery = req.query.search || ""; // Default to empty if no search
+  let minPrice = req.query.minPrice ? Number(req.query.minPrice) : 0; // Default to 0
+  let maxPrice = req.query.maxPrice ? Number(req.query.maxPrice) : Infinity; // Default to no upper limit
+
+  // Create a filter object
+  let filter = {
+    price: { $gte: minPrice, $lte: maxPrice }, // Filter by price range
+  };
+  if (searchQuery) {
+    filter.title = { $regex: searchQuery, $options: "i" }; // Case-insensitive search
+  }
+
+  // Get total records and filtered products
+  let totalRecords = await Product.countDocuments(filter);
+  let totalPages = Math.ceil(totalRecords / pageSize);
+  let products = await Product.find(filter)
+    .limit(pageSize)
+    .skip((page - 1) * pageSize);
+
+  return res.render("admin/products", {
+    layout: "Admin_layout",
+    pageTitle: "Manage Your Products",
+    products,
+    page,
+    pageSize,
+    totalPages,
+    totalRecords,
+    searchQuery, // Pass search query back to the view
+    minPrice, // Pass price filters to the view
+    maxPrice,
   });
 });
 
