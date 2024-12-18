@@ -51,7 +51,10 @@ let product = await Product.findByIdAndDelete(req.params.id);
 return res.redirect("/admin/products")
 });
 
-
+router.get('/homepage',async(req, res) => {
+      const products=await Product.find(); // Fetch all products from the database
+      res.render('homepage', { layout:"product_layout",products }); // Pass products to EJS
+});
 
 //To products page
 router.get("/admin/products/:page?", async (req,res)=>{
