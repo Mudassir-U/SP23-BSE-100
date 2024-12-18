@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .bg-dark {
+            padding: 0;
+            margin: 0;
+        }
+
+        .image {
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+        }
+
+        .card img {
+            border-bottom: 5px solid #32CD32;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+        }
+
+        .News-Segment {
+            background-color: #94125e;
+        }
+
+        .text-links .text-link {
+            color: #fff; /* White text color */
+            text-decoration: none; /* Remove underline */
+            font-size: 1rem; /* Adjust font size */
+            margin-right: 10px; /* Add spacing between links */
+            transition: color 0.3s ease-in-out; /* Smooth hover effect */
+        }
+
+        .text-links .text-link:hover {
+            color: #32CD32; /* Change color on hover (e.g., lime green) */
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+    <header class="bg-black py-4">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <!-- Logo and Tagline -->
+            <div class="d-flex align-items-end">
+                <img src="Nestle.png" alt="Nestle" style="width: 100px;">
+                <h1 class="ms-3 mb-0 text-white">Good food, Good life</h1>
+            </div>
+
+            <!-- Text Links for Login, Signup, and Logout -->
+            <div class="text-links">
+                <% if (user) { %>
+                    <!-- Show Logout text link if user is logged in -->
+                    <a href="/Logout" class="text-link">Logout</a>
+                <% } else { %>
+                    <!-- Show Login and Signup text links if user is not logged in -->
+                    <a href="/Login" class="text-link me-3">Login</a>
+                    <a href="/Register" class="text-link">Signup</a>
+                <% } %>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- Common buttons for all users -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/homepage">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Nutrition</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Ask Nestlé</a>
+                </li>
+                <!-- New Our Stories button -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Our Stories</a>
+                </li>
+
+                <!-- Conditional rendering based on user role -->
+                <% if (user && user.role === "admin") { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/category">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/products">Admin Panel</a>
+                    </li>
+                    
+                <% } else if (user && user.role === "user") { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cart">Cart</a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="image mb-5">
+        <img src="Nestle1.jpeg" alt="Child and Mother">
+        <div class="text">
+            <h1>Childhood Nutrition</h1>
+            <h2>Driving progress to make good childhood nutrition a reality everywhere</h2>
+            <a href="#" class="btn btn-primary mt-3">READ MORE →</a>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+            <!-- Card 1 -->
+            <div class="col">
+                <div class="card bg-dark text-white text-center h-100">
+                    <img src="Annual.jpg" class="card-img-top" alt="Annual report">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">Annual Report</h5>
+                        <p class="card-text">Our Annual Report outlines our financial performance and the progress we have made towards meeting our societal commitments.</p>
+                        <a href="#" class="card-link text-info">Read More →</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col">
+                <div class="card bg-dark text-white text-center h-100">
+                    <img src="Sustanibility.jpg" class="card-img-top" alt="Sustainability">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Sustainability</h5>
+                        <p class="card-text">We are taking action to fulfill our promise: to advance regenerative food systems at scale.</p>
+                        <a href="#" class="card-link text-info">Read More →</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col">
+                <div class="card bg-dark text-white text-center h-100">
+                    <img src="Contact.png" class="card-img-top" alt="Contact Us">
+                    <div class="card-body">
+                        <h5 class="card-title text-warning">Contact Us</h5>
+                        <p class="card-text">Got questions, concerns, or feedback? We want to hear them. Find out the many ways you can get in touch.</p>
+                        <a href="#" class="card-link text-info">Read more →</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col">
+                <div class="card bg-dark text-white text-center h-100">
+                    <img src="Community.jpg" class="card-img-top" alt="Community Giving">
+                    <div class="card-body">
+                        <h5 class="card-title text-danger">Community Giving</h5>
+                        <p class="card-text">We put communities at the heart of our giving activities, engaging with global and local partners.</p>
+                        <a href="#" class="card-link text-info">Read more →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="News-Segment py-5">
+        <div class="container text-center">
+            <h1 class="mb-4">LATEST NEWS</h1>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <h4>SEP 23, 2024</h4>
+                    <p>News technology allows visitors to go behind Nestlé factory doors.</p>
+                    <a href="#" class="card-link text-white">→</a>
+                </div>
+                <div class="col">
+                    <h4>SEP 19, 2024</h4>
+                    <p>Rethinking the impact of nutrition on health: From nutrients to meals to balanced diets.</p>
+                    <a href="#" class="card-link text-white">→</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer py-3">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Nestle. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
