@@ -8,6 +8,9 @@ let server = express();
 
 let Product = require("./models/product.model");
 let User = require("./models/user.model");
+let Order = require("./models/order.model");
+const ordersRouter = require("./routes/admin/order.controller");
+server.use(ordersRouter);
 
 //use of method override for put request
 const methodoverride = require("method-override");
@@ -23,6 +26,8 @@ server.use(session({  secret: 'your-secret-key',
   saveUninitialized: false}));
   server.use(sitemiddleware);
 
+  server.use(express.urlencoded({ extended: true }));
+
 server.set("view engine", "ejs");
 server.set("views", __dirname + "/views");
 
@@ -32,7 +37,6 @@ server.use(express.static("uploads"));
 
 server.use(methodoverride("_method"))
 
-server.use(express.urlencoded({ extended: true }));
 
   
 let adminProductsRouter = require("./routes/admin/product.controller");
@@ -106,10 +110,19 @@ server.post("/cart/remove/:id", (req, res) => {
   res.cookie("cart", cart); // Update the cart in cookies
   return res.redirect("/cart"); // Redirect back to the cart page
 });
+
+server.get("/Checkout",(req,res)=>{
+  return res.render("Checkout");
+});
+
+server.get("/admin/order",(req,res)=>{
+  return res.render("admin/order",{layout:"Admin_layout"})
+})
 //To Bootstrap
 server.get("/", (req, res) => {
   return res.render("BOOTSTRAP"),{layout:false}
 });
+
 
 
 

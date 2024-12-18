@@ -1,6 +1,7 @@
 const express = require("express");
 let router = express.Router();
 let Product = require("../../models/product.model");
+let Order= require("../../models/order.model");
 let multer = require("multer");
 
 const storage = multer.diskStorage({
@@ -74,6 +75,23 @@ router.get("/admin/products/:page?", async (req, res) => {
   if (searchQuery) {
     filter.title = { $regex: searchQuery, $options: "i" }; // Case-insensitive search
   }
+
+  router.get("/admin/orders", async (req, res) => {
+    try {
+      // Fetch all orders sorted by date in descending order
+      const orders = await Order.find().sort({ orderDate: -1 });
+  
+      // Render the orders to the admin panel
+      res.render("adminOrders", { layout: "Admin_layout", orders });
+    } catch (error) {
+      console.error("Error fetching orders:", error);
+      res.status(500).send("Internal Server Error");
+    }
+  });
+
+  server.get("/admin/order",(req,res)=>{
+    return res.render("admin/order",{layout:"Admin_layout"})
+  })
 
   // Get total records and filtered products
   let totalRecords = await Product.countDocuments(filter);

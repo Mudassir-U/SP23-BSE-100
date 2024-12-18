@@ -115,16 +115,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Our Stories</a>
                 </li>
-
+    
                 <!-- Conditional rendering based on user role -->
                 <% if (user && user.role === "admin") { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/order">Orders</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/category">Category</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/products">Admin Panel</a>
                     </li>
-                    
                 <% } else if (user && user.role === "user") { %>
                     <li class="nav-item">
                         <a class="nav-link" href="/cart">Cart</a>
@@ -133,6 +135,7 @@
             </ul>
         </div>
     </nav>
+    
 
     <div class="image mb-5">
         <img src="Nestle1.jpeg" alt="Child and Mother">
