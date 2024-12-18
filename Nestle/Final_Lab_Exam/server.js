@@ -59,7 +59,7 @@ server.get("/Login", async(req,res)=>{
 server.post("/Login", async (req, res) => {
   let data = req.body;
   let user = await User.findOne({ email: data.email });
-  if (!user) return res.redirect("/Registration");
+  if (!user) return res.redirect("/Register");
   const isvalid = await bcrypt.compare(data.password,user.password);
   if (!isvalid) return res.redirect("/Login");
   req.session.user = user;
