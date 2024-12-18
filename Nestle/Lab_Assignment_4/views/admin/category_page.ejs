@@ -1,0 +1,79 @@
+<h4 class="text-center mb-4">Add Category</h4>
+
+<form action="" method="post">
+    <div class="form-group mb-3">
+        <label for="titleInput">Title</label>
+        <input name="title" type="text" class="form-control" id="titleInput" placeholder="Enter Title" />
+        <small id="emailHelp" class="form-text text-muted">Category Title</small>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="descriptionInput">Description</label>
+        <textarea name="description" class="form-control" id="descriptionInput" placeholder="Enter Description"></textarea>
+        <small id="emailHelp" class="form-text text-muted">Category Details</small>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success btn-lg btn-block w-100">Create New Category</button>
+    </div>
+</form>
+
+<style>
+    /* General Styling */
+    form {
+        background-color: #f9f9f9;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-group label {
+        font-weight: bold;
+    }
+
+    /* Form Inputs and Textarea */
+    .form-control, .form-control-file {
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .form-control:focus, .form-control-file:focus {
+        border-color: #00796b;
+        box-shadow: 0 0 5px rgba(0, 128, 128, 0.2);
+    }
+
+    /* Button Styling */
+    .btn-success {
+        background-color: #00796b;
+        border-color: #00796b;
+        font-size: 1.1rem;
+        padding: 12px 18px;
+        border-radius: 5px;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .btn-success:hover {
+        background-color: #004d40;
+        transform: scale(1.05);
+    }
+
+    /* Small Text */
+    .form-text {
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    /* Input Spacing */
+    .mb-3 {
+        margin-bottom: 15px;
+    }
+
+    /* Heading */
+    h4 {
+        font-family: 'Arial', sans-serif;
+        color: #333;
+    }
+</style>
